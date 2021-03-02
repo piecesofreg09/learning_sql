@@ -11,8 +11,8 @@ begin
    for cnt in 1000000..1000010 loop
       INSERT INTO test."Results"(id, tags, des)
 	  VALUES (uuid_generate_v5('cd374994-1ded-467f-9942-0190af6f5d3a', cnt::TEXT),
-			 ARRAY['bb'],
-			 'abcabcabc');
+		  ARRAY['bb'],
+		  'abcabcabc');
    end loop;
 end; $$;
 select * from test."Results" where not ARRAY['test'] <@ tags;
